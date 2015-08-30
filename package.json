@@ -1,6 +1,9 @@
 {
   "name": "js-coding-challenge",
-  "version": "2.1.x",
+  "version": "2.12.1",
+  "engines": {
+    "node": "0.12.7"
+  },
   "description": "JS Server for WDI code challenge",
   "main": "server.js",
   "scripts": {
