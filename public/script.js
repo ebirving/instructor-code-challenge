@@ -19,8 +19,7 @@ function displayFavorites() {
   var url = 'https://cine-spa.herokuapp.com/favorites';
   ajaxCall.onreadystatechange = function() {
     if (ajaxCall.readyState==4 && ajaxCall.status==200){
-      var json = ajaxCall.responseText;
-      var response = JSON.parse(json);
+      var response = JSON.parse(ajaxCall.responseText);
       for (l = 0; l < response.length; l++){
         var newFave = document.createElement('div');
         newFave.innerHTML = response[l].name;
@@ -40,8 +39,7 @@ function searchImdb() {
   var ajaxCall = new XMLHttpRequest();
   var url = 'https://www.omdbapi.com/?s=' + keyword + '&r=json';
   ajaxCall.onreadystatechange = function() {
-    var json = ajaxCall.responseText;
-    var response = JSON.parse(json);
+    var response = JSON.parse(ajaxCall.responseText);
     var searchResults = response.Search;
     movieMenu.innerHTML = '';
     if (ajaxCall.readyState == 4 && ajaxCall.status == 200) {
@@ -73,8 +71,7 @@ function displayMovieDetails() {
   ajaxCall.onreadystatechange = function () {
     if (ajaxCall.readyState == 4 && ajaxCall.status == 200) {
       //...display them...
-      var json = ajaxCall.responseText;
-      var response = JSON.parse(json);
+      var response = JSON.parse(ajaxCall.responseText);
       var movieDetails = document.createElement('div');
       movieDetails.setAttribute('class', 'movie-details');
       movieDetails.innerHTML =
