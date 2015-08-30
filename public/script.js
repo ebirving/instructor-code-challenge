@@ -16,7 +16,7 @@ window.onload = function () {
 //GET saved favorites from the data.json file via server.js...
 function displayFavorites() {
   var ajaxCall = new XMLHttpRequest();
-  var url = 'http://localhost:3000/favorites';
+  var url = 'https://cine-spa.herokuapp.com/favorites';
   ajaxCall.onreadystatechange = function() {
     if (ajaxCall.readyState==4 && ajaxCall.status==200){
       var response = JSON.parse(ajaxCall.responseText);
@@ -98,7 +98,7 @@ function addtoFaves() {
   var self = this;
   event.preventDefault();
   var ajaxCall = new XMLHttpRequest();
-  var url = 'http://localhost:3000/favorites';
+  var url = 'https://cine-spa.herokuapp.com/favorites';
   ajaxCall.onreadystatechange = function() {
     if (ajaxCall.readyState==4 && ajaxCall.status==200){
       displayFavorites();
