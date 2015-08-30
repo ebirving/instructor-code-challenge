@@ -55,8 +55,6 @@ function displayMovieDetails() {
         '<input type="hidden" value=' + response.imdbID + ' name='+ '"' + response.Title + '"' + '><input type="submit" value="Add to Favorites">';
       self.parentElement.appendChild(faveButton);
       self.removeEventListener('click', displayMovieDetails);
-      console.log(response);
-      console.log(faveButton.firstChild.value);
       makeClickableFave();
     }
   };
@@ -76,10 +74,39 @@ function addtoFaves() {
   event.preventDefault();
   var searchCall = new XMLHttpRequest();
   var url = 'http://localhost:3000/favorites';
+  searchCall.onreadystatechange = function() {
+    if (searchCall.readyState==4 && searchCall.status==200){
+      var response = JSON.parse(searchCall.responseText);
+      console.log(response[response.length - 1]);
+      var newFave = document.createElement('div');
+      newFave.innerHTML = response[response.length - 1].name;
+      favesList.appendChild(newFave);
+    }
+  };
   searchCall.open('POST', url, true);
   searchCall.setRequestHeader('Content-Type', 'application/json');
   searchCall.send('{"oid":"'+ self.firstChild.value +'","name":"' + self.firstChild.name +'"}');
 }
+
+function displayFavorites() {
+  var searchCall = new XMLHttpRequest();
+  var url = 'http://localhost:3000/favorites';
+  searchCall.onreadystatechange = function() {
+    if (searchCall.readyState==4 && searchCall.status==200){
+      var response = JSON.parse(searchCall.responseText);
+      for (l = 0; l < response.length; l++){
+        var newFave = document.createElement('div');
+        newFave.innerHTML = response[l].name;
+        favesList.appendChild(newFave);
+      }
+    }
+  };
+  searchCall.open("GET", url ,true);
+  searchCall.send();
+}
+
+var favesList = document.getElementById('favorites-list');
+displayFavorites();
 
 var searchForm = document.getElementById('search-form');
 searchForm.addEventListener('submit', function (event) {
