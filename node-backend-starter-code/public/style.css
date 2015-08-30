@@ -5,7 +5,6 @@ body {
 
 .fave-button {
   display: block;
-  border: 1px solid #000;
 }
 
 h1 {
@@ -23,7 +22,7 @@ input[type="search"] {
 }
 
 input[type="search"]:focus {
-	border: 2px solid #900;
+	border: 2px solid lemonchiffon;
 }
 
 #movie-list p {
@@ -31,7 +30,7 @@ input[type="search"]:focus {
 }
 
 .selected {
-  border: 2px dotted #900;
+  border: 2px dotted papayawhip;
   padding: .5em;
   margin: 2em;
 }
