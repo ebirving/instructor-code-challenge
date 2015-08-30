@@ -37,7 +37,7 @@ function searchImdb() {
   console.log(keyword);
   var movieMenu = document.getElementById('movie-list');
   var ajaxCall = new XMLHttpRequest();
-  var url = 'http://www.omdbapi.com/?s=' + keyword + '&r=json';
+  var url = 'https://www.omdbapi.com/?s=' + keyword + '&r=json';
   ajaxCall.onreadystatechange = function() {
     var response = JSON.parse(ajaxCall.responseText);
     var searchResults = response.Search;
@@ -66,7 +66,7 @@ function displayMovieDetails() {
   var self = this;
   self.parentElement.setAttribute('class', 'selected');
   var title = self.innerHTML;
-  var url = 'http://www.omdbapi.com/?t=' + title + '&y=&plot&r=json';
+  var url = 'https://www.omdbapi.com/?t=' + title + '&y=&plot&r=json';
   var ajaxCall = new XMLHttpRequest();
   ajaxCall.onreadystatechange = function () {
     if (ajaxCall.readyState == 4 && ajaxCall.status == 200) {
