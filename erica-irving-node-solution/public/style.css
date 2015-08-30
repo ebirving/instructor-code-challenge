@@ -1,0 +1,41 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+}
+
+.fave-button {
+  display: block;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0;
+}
+
+input {
+  font-size: 1em;
+}
+
+input[type="search"] {
+  border: 2px solid #000;
+  margin-right: 1em;
+}
+
+input[type="search"]:focus {
+	border: 2px solid lemonchiffon;
+}
+
+#movie-list p {
+  cursor: default;
+}
+
+.selected {
+  border: 2px dotted papayawhip;
+  padding: .5em;
+  margin: 2em;
+}
+
+.movie-details li {
+  text-align: left;
+  list-style-type: none;
+}
