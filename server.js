@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var path = require('path');
+var env = require('./env');
 var bodyParser = require('body-parser'); //Needed to require body-parser in order to use it in lines 8-9
 
 // app.use(express.static(path.join(__dirname, '/public'))); //Duplicate code
@@ -29,6 +30,6 @@ app.post('/favorites', function(req, res){
   }
 });
 
-app.listen(3000, function(){ //Needed "listen" in place of "list"
+app.listen(process.env.PORT || 3000, function() {
   console.log("Listening on port 3000");
 });
